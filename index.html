@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    body {
+      display: flex;
+      font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+      background-color: #f4d1d1;
+      background-image: radial-gradient(circle, #928d8d 1px, rgba(0, 0, 0, 0) 1px);
+      background-size: 20px 20px;
+    }
+
+    .list {
+      list-style-type: none;
+      padding: 0;
+      align-self: start;
+    }
+
+    .list-item:nth-child(n+11) {
+      display: none;
+    }
+
+    .list:not(:has(.list-item:nth-child(11)))~.show-more-btn {
+      display: none;
+    }
+
+    .card {
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      align-items: center;
+      width: 33%;
+      height: min-content;
+      margin: 10px;
+      background: #9bb99b;
+    }
+
+    .card-title {
+      width: 100%;
+    }
+
+    .show-more-btn {
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .show-more-btn::after {
+      content: "Show More";
+    }
+
+    #toggle-list:checked~.show-more-btn::after {
+      content: "Show Less";
+    }
+
+    #toggle-list:checked~.list .list-item:nth-child(n+11) {
+      display: block;
+    }
+
+    #toggle-list {
+      display: none;
+    }
+
+    .card .card-paragraph {
+      display: -webkit-box;
+      -webkit-line-clamp: 10;
+      text-align: justify;
+      padding: 0 5px 0 5px;
+      line-clamp: 10;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    #toggle-paragraph:checked~.card-paragraph {
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+      display: block;
+    }
+
+    .card:has(.card-paragraph:not(:has(br:nth-of-type(10)))) .show-more-btn {
+      display: none;
+    }
+
+    #toggle-paragraph:checked~.show-more-btn::after {
+      content: "Show Less";
+    }
+
+    #toggle-paragraph {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1 class="card-title">Hungian Gulyás recipe</h1>
+    <ul class="list">
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1.5 kg beef shin</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2 large onions, finely chopped</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 4 cloves garlic, minced</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2-3 tbsp lard or vegetable oil</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 3-4 tbsp high-quality Hungarian sweet paprika</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1 tbsp Hungarian hot paprika (optional, for spice)</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1 tsp caraway seeds, ground</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2 large carrots, peeled and sliced</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2 potatoes, peeled and cut into cubes</label>
+      </li>
+    </ul>
+    <label for="toggle-list" class="show-more-btn"></label>
+  </div>
+  <div class="card">
+    <input type="checkbox" id="toggle-list">
+    <h1 class="card-title">Hungian Gulyás recipe</h1>
+    <ul class="list">
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1.5 kg beef shin</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2 large onions, finely chopped</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 4 cloves garlic, minced</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2-3 tbsp lard or vegetable oil</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 3-4 tbsp high-quality Hungarian sweet paprika</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1 tbsp Hungarian hot paprika (optional, for spice)</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1 tsp caraway seeds, ground</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2 large carrots, peeled and sliced</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2 potatoes, peeled and cut into cubes</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1 large red bell pepper, diced</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 2 large tomatoes, peeled and diced (or 1 can of diced tomatoes)</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1 bay leaf</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> 1 liter (about 4 cups) beef broth or water</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> Salt to taste</label>
+      </li>
+      <li class="list-item">
+        <input type="checkbox">
+        <label> Freshly ground black pepper to taste</label>
+      </li>
+    </ul>
+    <label for="toggle-list" class="show-more-btn"></label>
+  </div>
+  <div class="card">
+    <input type="checkbox" id="toggle-paragraph">
+    <h1 class="card-title">The Heart and Soul of Hungary: A Story of Goulash</h1>
+    <p class="card-paragraph">
+      Goulash, known as gulyás in its native Hungary, is far more than just a stew; it is a culinary cornerstone, a
+      symbol of national identity, and a testament to a rich pastoral history. The word itself, derived from gulyás,
+      meaning "herdsman," speaks to its origins. It was the herdsmen of the Hungarian plains, the pusta, who first
+      cooked this dish, using what was readily available to them: meat from the cattle they tended, onions, and paprika.
+      This simple, yet profound, combination would evolve over centuries into the beloved dish we know today.
+      The key to authentic Hungarian goulash lies in the use of high-quality ingredients, particularly paprika. Paprika,
+      a spice made from dried, ground red peppers, is not just a flavoring agent; it is the very soul of the dish.
+      Hungarian paprika is renowned for its vibrant color and a range of flavors, from sweet (édes) to hot (erős),
+      and its liberal use gives the goulash its characteristic deep red hue and complex, earthy flavor. The process
+      begins with rendered fat, often lard or bacon, into which a generous amount of finely chopped onions are sautéed
+      until golden and translucent. It is crucial to cook the onions slowly and thoroughly, as they form the sweet and
+      savory base of the stew. Once the onions are ready, the pot is removed from the heat to prevent the paprika from
+      burning, a mistake that would turn the flavor bitter. The paprika is then stirred in, creating a fragrant,
+      red-tinged paste that coats the onions.
+      The meat, traditionally beef, is then added and browned on all sides. This step is essential for developing a
+      rich, savory flavor. Chuck or shin are excellent choices due to their marbled fat and connective tissues, which
+      break down during the long, slow cooking process, resulting in incredibly tender meat. Once the meat is browned, a
+      little water or broth is added, just enough to cover the meat. From this point on, it is a matter of patience. The
+      goulash simmers for several hours, allowing the flavors to meld and the meat to become fork-tender. The long
+      cooking time is not just for tenderness; it allows the paprika, onions, and meat to create a deep, unified flavor
+      profile that is both hearty and nuanced.
+      As the goulash simmers, other ingredients are often added. Carrots, parsley root, and potatoes are common
+      additions, providing a subtle sweetness and body to the stew. The potatoes, in particular, serve a dual purpose:
+      they absorb the rich flavors of the broth and thicken the stew naturally. Towards the end of the cooking process,
+      a few diced green peppers and tomatoes are often added, providing a fresh, slightly acidic note that cuts through
+      the richness of the meat and paprika.
+      The cultural significance of gulyás cannot be overstated. It is a dish that evokes a sense of home and comfort,
+      and it is a staple at family gatherings, celebrations, and even in humble village eateries. It speaks to a history
+      of a nomadic people who relied on the land and their animals for sustenance. The herdsmen of the pusta created a
+      dish that was practical and nourishing, using simple ingredients that could be found on their journeys. Over time,
+      it transcended its rustic origins to become a national treasure, celebrated for its complex flavors and comforting
+      warmth.
+    </p>
+    <label for="toggle-paragraph" class="show-more-btn"></label>
+  </div>
+</body>
+
+</html>
